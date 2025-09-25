@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoramento ESP32</title>
+    
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Monitoramento ESP32 📊</h1>
+            <p>Sistema de captura e visualização de dados em tempo real</p>
+        </header>
+        
+        <div class="main-content">
+            <!-- Coluna Esquerda -->
+            <div class="left-column">
+                <div class="circle-image">
+                    <img src="https://avatars.githubusercontent.com/u/201479538?s=200&v=4" 
+                         alt="ESP32 Microcontroller">
+                </div>
+                
+                <div class="sensor-card">
+                    <h2>Sobre o Sistema</h2>
+                    <p>
+                        Este sistema realiza a captura de dados de sensores conectados a um microcontrolador ESP32. 
+                        As informações de temperatura e umidade são coletadas periodicamente e transmitidas para 
+                        este painel de controle em tempo real. A interface permite visualizar os últimos registros 
+                        e monitorar as condições ambientais de forma remota.
+                    </p>
+                </div>
+                
+                <div class="sensor-card">
+                    <h3>Status do Sistema</h3>
+                    <div class="status-item">
+                        <span>Conectividade:</span>
+                        <span class="online">
+                            <i class="fas fa-circle"></i> Online
+                        </span>
+                    </div>
+                    <div class="status-item">
+                        <span>Última atualização:</span>
+                        <span id="last-update">Agora mesmo</span>
+                    </div>
+                    <button id="refresh-btn" class="btn">
+                        <i class="fas fa-sync-alt"></i> Atualizar Dados
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Coluna Direita -->
+            <div class="right-column">
+                <div class="sensor-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h2>Últimas Leituras</h2>
+                        <div style="display: flex; align-items: center;">
+                            <span style="margin-right: 10px; font-size: 0.9rem;">Atualizando a cada 3s</span>
+                            <i class="fas fa-circle online" style="font-size: 0.8rem;"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Temperatura (°C)</th>
+                                    <th>Umidade (%)</th>
+                                    <th>Data/Hora</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabela-body">
+                                <tr>
+                                    <td colspan="3" class="loading">Carregando dados...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="table-footer">
+                        <span>Exibindo os últimos <strong>3</strong> registros</span>
+                        <span id="total-registros">0 registros no total</span>
+                    </div>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="sensor-card stat-card">
+                        <div class="stat-value temp-value" id="avg-temp">--</div>
+                        <div class="stat-label">Temperatura Média</div>
+                    </div>
+                    <div class="sensor-card stat-card">
+                        <div class="stat-value humidity-value" id="avg-humidity">--</div>
+                        <div class="stat-label">Umidade Média</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
