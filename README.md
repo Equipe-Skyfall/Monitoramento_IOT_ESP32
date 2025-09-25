@@ -52,8 +52,6 @@ A solução pode ser expandida para diferentes tipos de sensores, sendo um passo
 | 1    |   1    | Alta       | 5          | Como sistema, quero receber dados do ESP32 via serial, para armazenar em banco. | ✅ |
 | 2    |   1    | Alta       | 3          | Como desenvolvedor, quero salvar os dados em MongoDB Atlas, para garantir persistência. | ✅ |
 | 3    |   1    | Alta       | 5          | Como usuário, quero visualizar os últimos dados em um frontend simples. | ✅ |
-| 4    |   2    | Média      | 5          | Como usuário, quero ver gráficos básicos (linha/tempo), para entender tendências. | ⏳ |
-| 6    |   3    | Baixa      | 8          | Como administrador, quero exportar relatórios em CSV/PDF. | ⏳ |
 
 ---
 
