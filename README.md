@@ -67,3 +67,91 @@ A solução pode ser expandida para diferentes tipos de sensores, sendo um passo
 | <img src="https://avatars.githubusercontent.com/u/95691713?v=4" width="75px"> | Dev Team      | Kathellyn Caroline Alves dos Santos |  [Linkedin](https://www.linkedin.com/in/kathellyn-caroline-a562101b9)  | [GitHub](https://github.com/CarolineKathellyn)    |
 | <img src="https://avatars.githubusercontent.com/u/162117908?v=4" width="75px"> | Dev Team      | Paulo Henrique Martins de Almeida |  [Linkedin](https://www.linkedin.com/in/paulo-almeida-3102452a7/)  | [GitHub](https://github.com/pauloalmeida46)    |
 | <img src="https://avatars.githubusercontent.com/u/161987258?v=4" width="75px"> | Dev Team      | Victor Daniel |  [Linkedin](https://www.linkedin.com/in/victor-daniel-ramos-bessa-1436a3215/)  | [GitHub](https://github.com/victordanielrb)    |
+
+</a>
+
+<br>
+
+---
+
+<br>
+
+# 📘 Manual de Instalação
+
+Este projeto utiliza **ESP32** e integração com **Node.js** e **MongoDB**.  
+Siga os passos abaixo para configurar o ambiente corretamente. 🚀
+
+---
+
+## 🔧 1. Configuração do ESP32
+1. Abra o **Arduino IDE**.  
+2. Conecte o ESP32 via **USB**.  
+3. Carregue o seguinte código:
+
+```cpp
+#include "DHT.h"
+
+#define DHTPIN 18      // pino do ESP32 conectado ao DHT
+#define DHTTYPE DHT22  // ou DHT22
+
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  Serial.begin(9600);
+  dht.begin();
+}
+
+void loop() {
+  float h = dht.readHumidity();
+  float t = dht.readTemperature();
+
+  if (isnan(h) || isnan(t)) {
+    Serial.println("Falha ao ler o sensor!");
+    return;
+  }
+
+  // Envia para a porta serial em formato JSON
+  Serial.print("{\"temp\":");
+  Serial.print(t);
+  Serial.print(", \"umid\":");
+  Serial.print(h);
+  Serial.println("}");
+
+  delay(3000); // a cada 3s
+}
+```
+
+---
+
+## 📂 2. Clonar o Repositório
+No terminal, execute o comando:
+
+```bash
+git clone https://github.com/Equipe-Skyfall/Monitoramento_IOT_ESP32.git
+```
+
+---
+
+## 📦 3. Instalar Dependências
+Acesse a pasta do projeto e instale os pacotes necessários:
+
+```bash
+npm install mongodb express serialport
+```
+
+---
+
+## ▶️ 4. Executar o Projeto
+Para rodar a aplicação, utilize:
+
+```bash
+node server.js
+```
+
+---
+
+## ✅ Pronto!
+O sistema estará em execução e pronto para ser utilizado. 🎉
+
+---
+📌 **Dica:** Caso tenha problemas de conexão com o ESP32, verifique se o **driver USB** está instalado corretamente no seu computador.
