@@ -1,7 +1,7 @@
 #include "DHT.h"
 
 #define DHTPIN 18      // pino do ESP32 conectado ao DHT
-#define DHTTYPE DHT22  // ou DHT11
+#define DHTTYPE DHT22  // ou DHT22
 
 DHT dht(DHTPIN, DHTTYPE);
 
@@ -26,5 +26,5 @@ void loop() {
   Serial.print(h);
   Serial.println("}");
 
-  delay(3000); // a cada 2s
+  delay(3000); // a cada 3s
 }
