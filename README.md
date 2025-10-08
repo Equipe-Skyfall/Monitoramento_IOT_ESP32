@@ -154,4 +154,10 @@ node server.js
 O sistema estará em execução e pronto para ser utilizado. 🎉
 
 ---
+
+## ▶️ Como Rodar sem o ESP32
+
+Para rodar o projeto sem a utilização real de um ESP32 substitua o arquivo app.js localizado na pasta "public", utilize o arquivo app.js localizado na pasta "exemplo".
+
+---
 📌 **Dica:** Caso tenha problemas de conexão com o ESP32, verifique se o **driver USB** está instalado corretamente no seu computador.
